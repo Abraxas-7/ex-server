@@ -9,9 +9,12 @@ const port = process.env.PORT || 3000;
 const errorsHandler = require("./middlewares/errorsHandles");
 const notFound = require("./middlewares/notFound");
 const corsPolicy = require("./middlewares/corsPolicy");
-const examplesRouter = require("./routes/examples");
+const postsRouter = require("./routes/posts");
+const tagsRouter = require("./routes/tags");
 
 app.use(express.static("public"));
+
+app.use(express.json());
 
 app.use(corsPolicy);
 
@@ -20,7 +23,8 @@ app.get("/", (req, res) => {
 });
 
 //other routes
-app.use("/examples", examplesRouter);
+app.use("/posts", postsRouter);
+app.use("/tags", tagsRouter);
 
 app.use(errorsHandler);
 

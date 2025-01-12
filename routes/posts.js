@@ -7,7 +7,7 @@ const {
   store,
   update,
   destroy,
-} = require("../controllers/exampleController");
+} = require("../controllers/postController");
 //Rotte
 
 // Index - Read all
